@@ -1,0 +1,25 @@
+#version 120 
+
+
+
+
+varying vec2 fragPos;
+varying vec2 UV;
+uniform sampler2D text;
+uniform float time;
+uniform int sparkling;
+uniform vec2 projectionSize;
+
+void main() { 
+  
+       vec4 color = texture2D(text, UV);
+       if (sparkling == 1){
+         if (sin(time*20) > 0){
+            color+=vec4(0.5,0.5,0.5,0.);
+         }
+       }
+       gl_FragColor = color;
+
+ 
+
+}
